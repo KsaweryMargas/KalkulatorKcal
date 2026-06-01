@@ -42,6 +42,8 @@ namespace KalkulatorKCAL
         {
             DodajProdukt(dinner);
         }
+        
+        //dodac sumowanie makroskładników i akutalizowanie progressbara i labeli z makroskładnikami
     }
 }
 
