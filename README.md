@@ -92,4 +92,8 @@ namespace KalkulatorKCAL
     }
 }
 
+
+
+Form1.cs [Projekt]
+---------------------------------------------------------------------------------------------------------------------
 <img width="558" height="307" alt="image" src="https://github.com/user-attachments/assets/58516d1b-ea2b-4f17-ae58-cf3c31a3f798" />
