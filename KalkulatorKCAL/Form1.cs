@@ -1,5 +1,4 @@
 using Microsoft.VisualBasic;
-using System.Reflection;
 
 namespace KalkulatorKCAL
 {
@@ -21,6 +20,7 @@ namespace KalkulatorKCAL
             p.Carbs = Convert.ToDouble(Interaction.InputBox("Węglowodany:"));
 
             lista.Items.Add(p);
+            PrzeliczWszystko();
         }
 
         private void btnbreakfast_Click(object sender, EventArgs e)
@@ -42,8 +42,34 @@ namespace KalkulatorKCAL
         {
             DodajProdukt(dinner);
         }
-        
-        //dodac sumowanie makroskładników i akutalizowanie progressbara i labeli z makroskładnikami
-    }
-}
 
+
+        private void PrzeliczWszystko()
+        {
+            double sumaKcal = 0;
+            double sumaBialko = 0;
+            double sumaTluszcz = 0;
+            double sumaWegle = 0;
+
+
+            List<ListBox> lista = new List<ListBox> { breakfast, lunch, snack, dinner };
+
+            foreach (ListBox l in lista)
+            {
+                foreach (Product p in l.Items)
+                {
+                    sumaKcal += p.Calories;
+                    sumaBialko += p.Protein;
+                    sumaTluszcz += p.Fat;
+                    sumaWegle += p.Carbs;
+                }
+
+                lblkcal.Text = "Kalorie: " + sumaKcal + " kcal";
+                lblprotein.Text = "Białko: " + sumaBialko + " g";
+                lblfat.Text = "Tłuszcz: " + sumaTluszcz + " g";
+                lblcarbs.Text = "Węglowodany: " + sumaWegle + " g";
+            }
+        }
+    }
+
+}
